@@ -1,0 +1,11 @@
+{
+  "name": "Cthulu",
+  "version": "1.0.0",
+  "description": "My own Discord bot",
+  "main": "bot.js",
+  "author": "bluehat",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "sqlite": "^2.9.0"
+  }
+}
