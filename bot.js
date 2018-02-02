@@ -5,6 +5,7 @@ const auth = require('./auth.json')
 const client = new Discord.Client()
 const sql = require('sqlite')
 
+
 client.on('ready', () => {
     console.log('Logged in as ' + client.user.tag)
 })
@@ -19,15 +20,19 @@ client.on('message', message => {
     if (message.channel.type !== 'text') return
 
 
-    var banned = ['fuck', 'shit', 'cunt', 'dick']
-    var replacements = ['love making', 'fecal matter', 'Trai Corte', 'octopus tentacle']
+    var banned = ['fuck', 'shit', 'cunt', 'dick', 'ass', 'bitch']
+    var replacements = ['love making', 'fecal matter', 'Trai Corte', 'octopus tentacle', 'Joshua Jane', 'your mother']
 
     for (var i = 0; i < banned.length; i++) {
-        if (msg.indexOf(banned[i]) >= 0) {
+        if (msg.toLowerCase().indexOf(banned[i]) >= 0) {
             message.reply('hey thats a bad word! use ' + replacements[i] + ' instead!')
         }
     }
-
+    for (var i = 0; i < banned.length; i++) {
+        if (msg.toLowerCase().indexOf(replacements[i]) >= 0) {
+            message.reply('thank you for complying to our language standards...for once.')
+        }
+    }
 
     let sced = message.guild.roles.find('name', 'sacrificed');
     let member = message.mentions.members.first();
@@ -53,8 +58,8 @@ client.on('message', message => {
                 message.channel.send("use the prefix !\n" +
                     "-- !sacrifice @<user> : send the user to the underworld, and they will be scorned each time they speak\n" +
                     "-- !resurrect @<user> : return user to the living using dark magics\n" +
-                    "-- !avatar            : posts the image link to your avatar\n" +
-                    "-- !help              : well what do you think")
+                    "-- !avatar : posts the image link to your avatar\n" +
+                    "-- !help : well what do you think")
                 break
             case 'avatar':
                 message.channel.send(message.author.avatarURL)
