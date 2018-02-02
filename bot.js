@@ -29,7 +29,6 @@ client.on('message', message => {
     }
 
 
-
     let sced = message.guild.roles.find('name', 'sacrificed');
     let member = message.mentions.members.first();
     if (msg.substring(0, 1) === prefix) {
@@ -43,9 +42,12 @@ client.on('message', message => {
                 message.channel.send(member.user.username + "'s soul has been consumed by the mighty lord!");
                 break
             case 'resurrect':
-                member.removeRole(sced).catch(console.error);
-                message.channel.send(member.user.username + "'s soul has been pulled from the underworld!");
-
+                if (message.member.roles.has(sced.id)) {
+                    message.reply("BE SILENT THE DEAD BELONG TO ME!");
+                } else {
+                    member.removeRole(sced).catch(console.error);
+                    message.channel.send(member.user.username + "'s soul has been pulled from the underworld!");
+                }
                 break;
             case 'help':
                 message.channel.send('i cant help you ' + message.author.username)
@@ -61,6 +63,8 @@ client.on('message', message => {
                 message.channel.send(m)
                 break
         }
+    } else if (message.member.roles.has(sced.id)) {
+        message.reply("SILENCE! THE DEAD DO NOT SPEAK!");
     }
 })
 
