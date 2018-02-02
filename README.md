@@ -5,9 +5,11 @@ this is mostly me trying to figure out how to do what i want to do
 
 ## current implemented commands:
 with '!' prefix
+
+
 |command            |discription|
 |-------------------|-----------|
-|sacrifice @\<user\>|send the user to the underworld, and they will be scorned each time| they speak
+|sacrifice @\<user\>|send the user to the underworld, and they will be scorned each time they speak|
 |resurrect @\<user\>|return user to the living using dark magics|
 |avatar             |posts the image link to your avatar|
 |help               |dislay help text|
