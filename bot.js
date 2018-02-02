@@ -20,7 +20,7 @@ client.on('message', message => {
 
 
     var banned = ['fuck', 'shit', 'cunt', 'dick']
-    var replacements = ['xoth', 'vhoorl', 'Trai Corte', 'octopus tentacle']
+    var replacements = ['love making', 'fecal matter', 'Trai Corte', 'octopus tentacle']
 
     for (var i = 0; i < banned.length; i++) {
         if (msg.indexOf(banned[i]) >= 0) {
@@ -50,7 +50,11 @@ client.on('message', message => {
                 }
                 break;
             case 'help':
-                message.channel.send('i cant help you ' + message.author.username)
+                message.channel.send("use the prefix !\n" +
+                    "-- !sacrifice @<user> : send the user to the underworld, and they will be scorned each time they speak\n" +
+                    "-- !resurrect @<user> : return user to the living using dark magics\n" +
+                    "-- !avatar            : posts the image link to your avatar\n" +
+                    "-- !help              : well what do you think")
                 break
             case 'avatar':
                 message.channel.send(message.author.avatarURL)
